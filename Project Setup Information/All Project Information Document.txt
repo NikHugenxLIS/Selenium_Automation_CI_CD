@@ -1,0 +1,300 @@
+HUGENX 2.0 Automation FrameWork
+
+1. Folder Structure is completed.
+2. Base class is done
+3. WebDriver,Java,File utility ----done
+
+4. Basic POM (Login Page) Done
+5. Login Script Done
+6. Loin into Application is done
+
+**** Ehancement of WEBDRIVER UTILITY METHOD ********
+
+Todo list
+1. Intellije--- config -------- >> Done
+2. Basic Excel setup. --------->> Done
+3. Screenshot folder  -------->>> Done
+4. Listner implement. ---------->> Done
+5. Retry Analyzser---------->> Done
+6. Extend report---------->> Done
+7. Maven Commands---------->> Done
+8. Git Command ------------->> Done
+
+ Create ---*****TESTNG.XML file---------->>Done
+Then 
+**** CI/CD***
+
+
+
+
+
+EXCEL NOTES...
+
+How will you do the Data Driven testing from Excel ---- 
+ANS:
+MAVEN Dependencies Setup
+poi-ooxml and poi --- 
+And By Apache poi API
+
+
+=========================================================================================
+Git Command
+
+
+Basic Git Command..
+Step : 
+1. open the CMD
+2. tell git who you are -- For that  
+git config --global user.name "Sam Smith"
+git config --global user.email sam@example.com
+
+3. Then  Create a new local repository
+    Use : - git init (Initialize it as Git Repository)
+
+4. Staging - Commit
+
+Staging--- user can say it is commit one
+Commit --- user can say it is commit two, which is final commit.
+           Commit looks only file that which are in Staging only.
+
+
+When you want to Push any code to Git Hub 
+Flow will be --- 1. Staging your code  ---->> 2.Then Commit it which is in Staging  ------>> 3. Then --Final Push to -GITHUB.
+
+5. For Staging 
+Commands : git add * ------- Which means Add one or more files to staging/stash (index) and * means 
+
+6. Commit All My code
+
+ git commit -m "your commit Message" then hit enter
+ then all of your code will be commited
+
+7.Final push to GITHUB.
+ Tell your Git a Address(Which you want to Push)
+Create a Connection between remote and Local
+
+For That 
+git remote add origin <server> ------ git remote add origin https://github.com/NikHugenxLIS/GitDemo.git
+
+
+8.Then Final Push to GITHUB
+
+For Thatgit push -u origin master - --- Here master is a branch 
+
+
+----------------------------------
+if you want to clone the repository fresh/first time into your local repository then
+
+git clone
+
+Tortoise Git
+----------------------------------------
+Branching....
+
+master baranch --- it is a root branch
+
+user can drive the branch/Sub branch --- Develop branch 
+
+Then when branch is ready ---- then user can merge the branch into the master branch..
+
+1.So to create a branch
+
+Create a new branch and switch to it:	git checkout -b <Give here a brnch name that you want to create>
+
+2.To check that how many branch are there and you are in which branch
+git branch
+
+3. if user wants to just switch the branch 
+Then :- git checkout <branch Name>
+
+4. if user wants to push the code into specific branch then
+   :- git push origin <branch Name>
+
+5.
+
+=======================================================================================================================================================================================================
+===================================================================================>>> MAVEN COMMAND <<<<==============================================================================================
+Step -By Step Guide to Setup Maven -->> https://www.qamadness.com/knowledge-base/how-to-install-maven-and-configure-environment-variables/
+By Using Command prompt --->> We Need to Download Maven
+1. Go to Google and Search Maven Download
+2. Then click on the Link --->> Download Apache Maven
+3. For Window users click on "apache-maven-3.9.6-bin.zip" --- always download binary bin zip file.
+
+After Setup then Add Maven testng Integration in pom.xml file
+1. Go to the Google
+2. Search Maven testng integration
+3.Click on the link which have testng
+4.Go to till Using Suite XML Files
+Then copy 
+<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+Same above paste into your project pom.xml file 
+
+
+To avoid Hard Coding in Sure-fire file depedency --->> We have to do the profiling
+
+To Do that follow Below Steps:
+1. Create <Profiles>
+            <Profile>
+              <id>Give you test suit name for example regression/Login/any thing according your Choice </id>
+                  <build>
+            <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>D:/Selenium Project/Selenium_Automation/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            </plugins>
+            </pluginManagement>
+            </build>
+             </Profile>
+           </Profiles>
+
+Above written you can be repeat multiple times but just change the id name. below is the Example
+        <profile>
+            <id>Dashboard</id>
+ <build>
+            <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>D:/Selenium Project/Selenium_Automation/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            </plugins>
+            </pluginManagement>
+            </build>
+        </profile>
+
+        <profile>
+            <id>Accession</id>
+ <build>
+            <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>D:/Selenium Project/Selenium_Automation/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            </plugins>
+            </pluginManagement>
+            </build>
+        </profile>
+
+Now After Doing Above Save it 
+Open the Command Promt
+MVN COMMAND
+1. mvn test --->> it will run all of your test Script which is present in src/test/java folder-->> in that folder the Script having test as suffix/test at the end -->> That will all execute
+
+2. mvn test -P"Name of your Id (e.g-Login/regression/Dashboard)" -->> it will execute those only and Here "P" stands for Profiling
+     e.g-->> mvn test -PLogin
+
+
+
+===== Global Prameter for Maven ====
+
+===== Global Prameter for Maven ====
+If user Wants to Run/Execute your Test in Different Browser Through Command Promt(Basically which browser run in Run Time)
+
+COMMAND :
+1. mvn test -Dbrowser=firefox       --->>> Here "D" Stands for Maven Parameter  || Basically Dbrowser is a Variable and it's value we have given Firefox.
+
+2. Go to the Base Class and use below code which is based on  Java Terniary Operator
+
+   String browser = getProperty("BROWSER")!=null ? getProperty("BROWSER") : fLib.getPropertyKeyValue("BROWSER");
+
+3.Now If you want to Execute your Test cases Through Command Prompt
+Then : - mvn test -PLogin -Dbrowser=firefox
+
+
+=========================================================++++++++++++++++++++++++++++++++++++++++++++==========================================================================================================
+================================================================== JENKINS (CI/CD)==============================================================================================================================
+How To Setup:
+1. Go to the Google
+2. Search Jenkin downloads
+3. Then go to the offical Website
+4. Download Generic Java package (.war) --->> LTS 
+SHA-256: 0a4dee3276867329745bc9d253dad8565fab00b4c2f06e1a22d492d6d464495d 
+5.Once download is complete 
+6.Then goto the place where your jenkins is downloaded
+7. Then open the cmd from that place/folder
+8. run the Below Command
+    java -jar jenkins.war -httpPort=8080
+9.To locate the Adimn password which is generated by cmd/initial setup you can see the CMD  or you can look for the path like this :- C:\Users\Lenovo\.jenkins\secrets\initialAdminPassword
+10. Go to the Browser then type the  URL like : - localhost:8080
+11. then a page will be displayed then paste the password in the field.
+12. Save the Username : admin
+             Password : 32965526f08349ad8d04e5a18ce67695
+
+13. once you login -->> a page will be displayed-->> click on the Suggessted plugin
+14. once you click on the Suggessted plugin then installation will be in progress.
+15. Once Installation is completed then Setup your username & Password
+                 Username :- QA_Nikki_Rup_Kumar
+                 Password :- 23MN@ak1
+16.click on Save & Continue button
+17. you will get a jenkin URL :- http://localhost:8080/
+
+
+---------------------------- Configure the Jenkins ----------------------------------
+1.Click on the "New Item" -->> A Page will be displayed
+2. Enter your Job Name according to your choice (e.g - Selenium_Automation)
+3. Click on the Free Style Project
+4 .Click on the "Ok" button
+5. Once you click on the ok button then a page will be display-->> Configure
+6. On Configure --->> general Seeting page will be displayed
+                       Click on the Advanced 
+                       Then Select "Use custom workspace ? "
+                       Then Provide Path of your project which is in Local System :- D:\Selenium Project\Selenium_Automation
+                       Go to the Biuld and click on it -->> a dropdown will display
+                       Select from dropdown :->> Invoke top-level Maven targets
+                        Then Provide Maven command in the field like below 
+                          test -PLogin -DBROWSER=firefox
+                        Then click on the Save button and you will navigate on the Dashboard.
+
+
+========================================================================================================================================================================================================
+=======================================+++++++++++++++++++++++++++++++++++>>>>> Locator <<<<<++++++++++++++++++++++++++++++++++++=======================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
